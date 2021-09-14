@@ -2,8 +2,8 @@
 
 const App = () => {
   return (
-    <div>
-      
+    <div className='container'>
+      123
     </div>
   )
 }
