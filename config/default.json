@@ -1,3 +1,4 @@
 {
-    "port": 8888
+    "port": 8888,
+    "mongoUri": "mongodb+srv://admin:admin@cluster0.3avn9.mongodb.net/links-mern?retryWrites=true&w=majority"
 }
