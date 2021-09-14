@@ -6,6 +6,7 @@ const app = express();
 
 const PORT = config.get('port') || 5000;
 
+app.use('/api/auth', require('./routes/auth.router'));
 
 const start = async () => {
     try{
