@@ -1,11 +1,15 @@
+import useRoutes from "./routes"
 
 
 const App = () => {
-  return (
-    <div className='container'>
-      123
-    </div>
-  )
+    
+    const router = useRoutes(true)
+
+    return (
+        <div className='container'>
+            { router }
+        </div>
+    )
 }
 
 export default App
