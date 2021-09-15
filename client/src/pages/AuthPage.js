@@ -1,6 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import useFetch from '../hooks/useFetch'
 
 const AuthPage = () => {
+    const [ formData, setFormData ] = useState({})
+
+    const { fetchData, error, loading, clearError } = useFetch()
+
+    const changeHandler = () => {
+
+    }
+
+    const registerHandler = (e) => {
+        setFormData({
+            ...formData, 
+            [e.target.name]: e.target.value
+        })
+    }
+
     return (
         <div>
             <div className="card blue-grey darken-1">
