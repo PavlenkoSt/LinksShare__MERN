@@ -3,7 +3,7 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const { validationResult, check } = require('express-validator');
 const jwt = require('jsonwebtoken');
-const config = require('../config/default.json');
+const config = require('config');
 
 const router = Router();
 
@@ -23,7 +23,7 @@ router.post(
             return res.status(400).json({ errors: errors.array(), message: 'Uncorrect registration data' })
         }
         
-        const emailCandidate = User.findOne({ email });
+        const emailCandidate = await User.findOne({ email });
 
         if(emailCandidate){
             return res.status(400).json({ message: "A User with this email already exists in base!" })
@@ -57,21 +57,23 @@ router.post(
             return res.status(400).json({ errors: errors.array(), message: "Uncorrect login data" });
         }
 
-        const user = User.findOne({ email });
+        const user = await User.findOne({ email });
 
         if(!user){
             return res.status(400).json({ message: "User not found" });
         }
 
-        const isMatch = bcrypt.compare(password, user.password);
+        const isMatch = await bcrypt.compare(password, user.password);
 
         if(!isMatch){
             return res.status(400).json({ message: "Email or password entered uncorrect" });
         }
 
+        const jwtSecretKey = config.get('jwtSecret');
+
         const token = jwt.sign(
             { userId: user.id },
-            config.get('jwtSecret'),
+            jwtSecretKey,
             { expiresIn: '1h' }
         );
 
