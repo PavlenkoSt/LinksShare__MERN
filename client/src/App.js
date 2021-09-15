@@ -1,9 +1,9 @@
 import useRoutes from "./routes"
-
+import 'materialize-css'
 
 const App = () => {
     
-    const router = useRoutes(true)
+    const router = useRoutes(false)
 
     return (
         <div className='container'>
