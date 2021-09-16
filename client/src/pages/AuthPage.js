@@ -27,7 +27,9 @@ const AuthPage = () => {
 
     const loginHandler = async () => {
         const loginData = await fetchData('api/auth/login', 'POST', { ...formData })
-        auth.login(loginData.token, loginData.userId)
+        if(loginData && loginData.token && loginData.userId){
+            auth.login(loginData.token, loginData.userId)
+        }
     }
 
     useEffect(() => {

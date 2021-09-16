@@ -43,3 +43,7 @@ code {
 .auth-input:focus + label{
   color: rgb(255, 209, 3) !important;
 }
+
+.nav-wrapper{
+  padding: 0 20px;
+}

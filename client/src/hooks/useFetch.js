@@ -28,7 +28,7 @@ const useFetch = () => {
             setError(e.message)
             setLoading(false)
         }
-    })
+    }, [])
 
     const clearError = () => setError(null)
 

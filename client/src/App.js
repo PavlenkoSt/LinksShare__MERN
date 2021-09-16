@@ -1,7 +1,9 @@
 import useRoutes from "./routes"
 import AuthContext from "./context/AuthContext"
-import 'materialize-css'
 import useAuth from "./hooks/useAuth"
+import Navbar from "./components/Navbar"
+import 'materialize-css'
+
 
 const App = () => {
 
@@ -13,6 +15,7 @@ const App = () => {
 
     return (
         <AuthContext.Provider value={{ token, userId, login, logout, isAuth }}>
+            { isAuth && <Navbar/> }
             <div className='container'>
                 { router }
             </div>

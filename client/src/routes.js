@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import AuthPage from './pages/AuthPage'
 import CreatePage from './pages/CreatePage'
 import DetailPage from './pages/DetailPage'
+import LinksPage from './pages/LinksPage'
 
 
 const useRoutes = isAuth => {
@@ -13,7 +14,7 @@ const useRoutes = isAuth => {
                     <CreatePage/>
                 </Route>
                 <Route path='/links' exact>
-                    <CreatePage/>
+                    <LinksPage/>
                 </Route>
                 <Route path='/detail/:id'>
                     <DetailPage/>

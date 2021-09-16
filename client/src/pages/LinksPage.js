@@ -3,7 +3,7 @@ import React from 'react'
 const LinksPage = () => {
     return (
         <div>
-            Link page
+            Links page
         </div>
     )
 }
