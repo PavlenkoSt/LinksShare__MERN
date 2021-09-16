@@ -1,4 +1,3 @@
-import react from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import AuthPage from './pages/AuthPage'
 import CreatePage from './pages/CreatePage'

@@ -30,7 +30,7 @@ const useFetch = () => {
         }
     }, [])
 
-    const clearError = () => setError(null)
+    const clearError = useCallback(() => setError(null), [])
 
     return { loading, error, fetchData, clearError }
 }

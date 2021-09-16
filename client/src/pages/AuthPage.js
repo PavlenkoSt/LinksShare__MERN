@@ -33,9 +33,11 @@ const AuthPage = () => {
     }
 
     useEffect(() => {
-        toast(error)
-        clearError()
-    }, [error, toast])
+        if(error){
+            toast(error)
+            clearError()
+        }
+    }, [error, toast, clearError])
 
     return (
         <div>
