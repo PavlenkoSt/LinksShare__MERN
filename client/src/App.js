@@ -1,13 +1,22 @@
 import useRoutes from "./routes"
+import AuthContext from "./context/AuthContext"
 import 'materialize-css'
+import useAuth from "./hooks/useAuth"
 
 const App = () => {
-    const router = useRoutes(false)
+
+    const { token, userId, login, logout } = useAuth()
+
+    const isAuth = !!token
+
+    const router = useRoutes(isAuth)
 
     return (
-        <div className='container'>
-            { router }
-        </div>
+        <AuthContext.Provider value={{ token, userId, login, logout, isAuth }}>
+            <div className='container'>
+                { router }
+            </div>
+        </AuthContext.Provider>
     )
 }
 

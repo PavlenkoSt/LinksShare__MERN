@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import useFetch from '../hooks/useFetch'
 import useToast from '../hooks/useToast'
 import { ToastContainer } from 'react-toastify'
+import AuthContext from '../context/AuthContext'
 
 
 const AuthPage = () => {
     const [ formData, setFormData ] = useState({ email: '', password: '' })
+
+    const auth = useContext(AuthContext)
 
     const { fetchData, error, loading, clearError } = useFetch()
     const toast = useToast()
@@ -23,8 +26,8 @@ const AuthPage = () => {
     }
 
     const loginHandler = async () => {
-        const login = await fetchData('api/auth/login', 'POST', { ...formData })
-        console.log(login)
+        const loginData = await fetchData('api/auth/login', 'POST', { ...formData })
+        auth.login(loginData.token, loginData.userId)
     }
 
     useEffect(() => {
