@@ -53,6 +53,7 @@ const AuthPage = () => {
                             name="email"
                             className="validate auth-input"
                             onChange={changeHandler}
+                            value={formData.email}
                         />
                         <label htmlFor="email">Email</label>
                     </div>
@@ -63,6 +64,7 @@ const AuthPage = () => {
                             name="password"
                             className="validate auth-input"
                             onChange={changeHandler}
+                            value={formData.password}
                         />
                         <label htmlFor="password">Password</label>
                     </div>
