@@ -15,10 +15,10 @@ router.post('/generate', auth, async (req, res) => {
 
         const to = baseUrl + '/t/' + code;
 
-        const exist = Link.findOne({ from });
+        const exist = await Link.findOne({ from });
 
         if(exist){
-            return res.json(exist);
+            return res.json({ link: exist });
         }
 
         const link = new Link({
