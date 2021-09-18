@@ -17,7 +17,7 @@ const CreatePage = () => {
         try{
             if(link){
                 const fetchLink = await fetchData('api/links/generate', 'POST', { from: link }, { authorization: `Bearer ${auth.token}`})
-                history.push(`/detail/:${fetchLink.link_id}`)
+                history.push(`/detail/${fetchLink.link._id}`)
             }
         }catch(e){
             throw new Error(`Error in create handler ----> `, e.message )
