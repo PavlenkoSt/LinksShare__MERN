@@ -1,5 +1,6 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
+import DetailCard from '../components/DetailCard'
 import AuthContext from '../context/AuthContext'
 import useFetch from '../hooks/useFetch'
 
@@ -28,9 +29,14 @@ const DetailPage = () => {
         return <p>loading...</p>
     }
 
+    if(!loading && !link){
+        return <p>Error. Link with this id not found.</p>
+    }
+
     return (
         <div>
-            DetailPage for { link?.from }
+            <h2 className='title'>DetailPage link with id: { link?._id }</h2>
+            <DetailCard link={link} />
         </div>
     )
 }
