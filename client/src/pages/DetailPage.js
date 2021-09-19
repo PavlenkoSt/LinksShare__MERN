@@ -35,7 +35,7 @@ const DetailPage = () => {
 
     return (
         <div>
-            <h2 className='title'>DetailPage link with id: { link?._id }</h2>
+            <h2 className='title'>DetailPage link with id: <span>{ link?._id }</span></h2>
             <DetailCard link={link} />
         </div>
     )

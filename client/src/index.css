@@ -47,3 +47,7 @@ code {
 .nav-wrapper{
   padding: 0 20px;
 }
+
+.title span{
+  font-size: 20px;
+}
