@@ -11,6 +11,7 @@ app.use(cors());
 app.use(express.json({ extended: true }));
 app.use('/api/auth', require('./routes/auth.router'));
 app.use('/api/links', require('./routes/link.router'));
+app.use('/t', require('./routes/redirect.router'));
 
 const start = async () => {
     try{
